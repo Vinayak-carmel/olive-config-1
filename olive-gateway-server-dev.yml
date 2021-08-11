@@ -68,13 +68,13 @@ spring:
 #  level:
 #    root: trace    
 
-spring:
-  cloud:
-    gateway:
-      httpclient:
-        wiretap: true
-      httpserver:
-        wiretap: true
+#spring:
+#  cloud:
+#    gateway:
+#      httpclient:
+#        wiretap: true
+#      httpserver:
+#        wiretap: true
 
 logging:
   level:
