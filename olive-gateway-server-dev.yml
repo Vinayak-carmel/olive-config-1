@@ -67,11 +67,19 @@ spring:
 #logging:
 #  level:
 #    root: trace    
-      
+
+spring:
+  cloud:
+    gateway:
+      httpclient:
+        wiretap: true
+      httpserver:
+        wiretap: true
+
 logging:
   level:
     reactor:
-      netty: INFO
+      netty: TRACE
     org:
       springframework:
         cloud:
