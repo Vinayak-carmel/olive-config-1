@@ -64,9 +64,18 @@ spring:
 #    service-url:
 #      defaultZone: http://localhost:7074/eureka/
       
-logging:
+#logging:
 #  level:
-#    root: trace
+#    root: trace    
+      
+logging:
+  level:
+    reactor:
+      netty: INFO
+    org:
+      springframework:
+        cloud:
+          gateway: TRACE      
   file:
     name: ./logs/olive-gateway-server.log
     
