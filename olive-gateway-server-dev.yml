@@ -47,7 +47,22 @@ spring:
             - RemoveRequestHeader=Cookie
             - RewritePath=/api/v1.0/refreshToken, /oauth/token
             
-            
+        - id: crm-service
+          uri: lb://crm-server
+          predicates:
+            - Path=/crm/**
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/crm/(?<segment>/?.*), /$\{segment}
+
+        - id: crm-service-resource
+          uri: lb://crm-server
+          predicates:
+            - Path=/crm/css/**,/crm/js/**,/crm/images/**
+            - Method=GET
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/crm/(?<segment>/?.*), /$\{segment}             
 
 
 
