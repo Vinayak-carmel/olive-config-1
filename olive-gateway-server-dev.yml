@@ -94,11 +94,11 @@ spring:
 logging:
   level:
     reactor:
-      netty: DEBUG
+      netty: TRACE
     org:
       springframework:
         cloud:
-          gateway: DEBUG      
+          gateway: TRACE      
   file:
     name: ./logs/olive-gateway-server.log
     
