@@ -16,7 +16,7 @@ auth:
   grant-type: "password"
   
 upload-path:
-  profile-pic-path: /Users/ronaldphilip/olive-uploads
+  profile-pic-path: /home/carmel/uploads
 
 spring:
   security:
