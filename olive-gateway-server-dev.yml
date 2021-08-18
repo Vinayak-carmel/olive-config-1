@@ -28,14 +28,23 @@ spring:
             - RemoveRequestHeader=Cookie
             - RewritePath=/api/olive/(?<segment>/?.*), /$\{segment}
 
-        - id: olive-foundation-service-resource
-          uri: lb://olive-foundation-server
+#         - id: olive-foundation-service-resource
+#           uri: lb://olive-foundation-server
+#           predicates:
+#             - Path=/css/**,/js/**,/images/**
+#             - Method=GET
+#           filters:
+#             - RemoveRequestHeader=Cookie
+#             - RewritePath=/(?<segment>/?.*), /$\{segment} 
+          - id: olive-static-resource-service
+          uri: lb://OLIVE-STATIC-RESOURCE-SERVER	
           predicates:
-            - Path=/css/**,/js/**,/images/**
+            - Path=/css/**,/js/**,/images/**,/profiles/**
             - Method=GET
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/(?<segment>/?.*), /$\{segment} 
+
 
 
         - id: refresh-token
@@ -55,14 +64,14 @@ spring:
             - RemoveRequestHeader=Cookie
             - RewritePath=/crm/(?<segment>/?.*), /$\{segment}
 
-        - id: crm-service-resource
-          uri: lb://crm-server
-          predicates:
-            - Path=/crm/css/**,/crm/js/**,/crm/images/**
-            - Method=GET
-          filters:
-            - RemoveRequestHeader=Cookie
-            - RewritePath=/crm/(?<segment>/?.*), /$\{segment}             
+#         - id: crm-service-resource
+#           uri: lb://crm-server
+#           predicates:
+#             - Path=/crm/css/**,/crm/js/**,/crm/images/**
+#             - Method=GET
+#           filters:
+#             - RemoveRequestHeader=Cookie
+#             - RewritePath=/crm/(?<segment>/?.*), /$\{segment}             
 
 
 
