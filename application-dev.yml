@@ -18,8 +18,9 @@ auth:
 upload-path:
   profile-pic-path: /home/carmel/uploads
   
-carmel:
-  web-app-name: "Olive"
+olive:
+  application:
+    name: "Olive"
 
 spring:
   security:
