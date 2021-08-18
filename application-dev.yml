@@ -16,7 +16,7 @@ auth:
   grant-type: "password"
   
 upload-path:
-  profile-pic-path: /home/carmel/uploads
+  profile-pic-path: /home/carmel/uploads/profile
   
 olive:
   application:
