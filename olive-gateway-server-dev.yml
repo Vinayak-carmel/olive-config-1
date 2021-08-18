@@ -36,7 +36,7 @@ spring:
 #           filters:
 #             - RemoveRequestHeader=Cookie
 #             - RewritePath=/(?<segment>/?.*), /$\{segment} 
-          - id: olive-static-resource-service
+        - id: olive-static-resource-service
           uri: lb://OLIVE-STATIC-RESOURCE-SERVER	
           predicates:
             - Path=/css/**,/js/**,/images/**,/profiles/**
