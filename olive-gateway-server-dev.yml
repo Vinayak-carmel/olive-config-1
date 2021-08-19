@@ -29,35 +29,6 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/api/olive/(?<segment>/?.*), /$\{segment}
-
-#         - id: olive-foundation-service-resource
-#           uri: lb://olive-foundation-server
-#           predicates:
-#             - Path=/css/**,/js/**,/images/**
-#             - Method=GET
-#           filters:
-#             - RemoveRequestHeader=Cookie
-#             - RewritePath=/(?<segment>/?.*), /$\{segment} 
-
-#         - id: olive-static-resource-service
-#           uri: lb://OLIVE-STATIC-RESOURCE-SERVER	
-#           predicates:
-#             - Path=/css/**,/js/**,/images/**,/profile/**
-#             - Method=GET
-#           filters:
-#             - RemoveRequestHeader=Cookie
-#             - RewritePath=/(?<segment>/?.*), /$\{segment} 
-
-
-
-        - id: refresh-token
-          uri: lb://olive-auth-server
-          predicates:
-            - Path=/api/v1.0/refreshToken
-            - Method=POST
-          filters:
-            - RemoveRequestHeader=Cookie
-            - RewritePath=/api/v1.0/refreshToken, /oauth/token
             
         - id: crm-service
           uri: lb://crm-server
