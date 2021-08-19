@@ -3,7 +3,9 @@ server:
 
 spring:
   application:
-    name: olive-gateway-server    
+    name: olive-gateway-server
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:/home/carmel/uploads/
   cloud:
     gateway:
       discovery:
