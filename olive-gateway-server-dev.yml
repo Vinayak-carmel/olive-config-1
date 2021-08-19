@@ -65,31 +65,7 @@ spring:
             - Path=/crm/**
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/crm/(?<segment>/?.*), /$\{segment}
-
-#         - id: crm-service-resource
-#           uri: lb://crm-server
-#           predicates:
-#             - Path=/crm/css/**,/crm/js/**,/crm/images/**
-#             - Method=GET
-#           filters:
-#             - RemoveRequestHeader=Cookie
-#             - RewritePath=/crm/(?<segment>/?.*), /$\{segment}             
-
-
-
-#  security:
-#    oauth2:
-#      resourceserver:
-#        jwt:
-#          jwk-set-uri: "http://localhost:7071/.well-known/jwks.json"
-          
-#eureka:
-#  client:
-#    region: default
-#    registry-fetch-interval-seconds: 5
-#    service-url:
-#      defaultZone: http://localhost:7074/eureka/
+            - RewritePath=/crm/(?<segment>/?.*), /$\{segment}           
       
 #logging:
 #  level:
