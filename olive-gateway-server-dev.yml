@@ -38,6 +38,24 @@ spring:
             - RewritePath=/(?<segment>/?.*), /$\{segment} 
 
 
+        - id: realestate-service
+          uri: lb://realestate-server
+          predicates:
+            - Path=/realEstate/**
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/realEstate/(?<segment>/?.*), /$\{segment}
+
+        - id: realestate-service-resource
+          uri: lb://realestate-server
+          predicates:
+            - Path=/realEstate/css/**,/realEstate/js/**,/realEstate/images/**
+            - Method=GET
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/(?<segment>/?.*), /$\{segment} 
+
+
         - id: refresh-token
           uri: lb://olive-auth-server
           predicates:
