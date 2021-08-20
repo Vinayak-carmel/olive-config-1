@@ -53,7 +53,7 @@ spring:
             - Method=GET
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/(?<segment>/?.*), /$\{segment} 
+            - RewritePath=/realEstate/(?<segment>/?.*), /$\{segment} 
 
 
         - id: refresh-token
