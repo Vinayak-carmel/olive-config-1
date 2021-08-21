@@ -18,7 +18,7 @@ spring:
             - Method=POST
           filters:
             #- RemoveRequestHeader=Cookie
-            #- RewritePath=/api/v1.0/doLogin, /api/v1/olive-login
+            - RewritePath=/api/v1.0/doLogin, /api/v1/olive-login
 
         - id: olive-foundation-service
           uri: lb://olive-foundation-server
