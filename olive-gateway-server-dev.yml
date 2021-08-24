@@ -17,7 +17,7 @@ spring:
             - Path=/api/v1.0/doLogin
             - Method=POST
           filters:
-            #- RemoveRequestHeader=Cookie
+            - RemoveRequestHeader=Cookie
             - RewritePath=/api/v1.0/doLogin, /api/v1/olive-login
 
         - id: olive-foundation-service
@@ -25,7 +25,7 @@ spring:
           predicates:
             - Path=/api/olive/**
           filters:
-            #- RemoveRequestHeader=Cookie
+            - RemoveRequestHeader=Cookie
             - RewritePath=/api/olive/(?<segment>/?.*), /$\{segment}
 
         - id: olive-foundation-service-resource
@@ -34,7 +34,7 @@ spring:
             - Path=/css/**,/js/**,/images/**
             - Method=GET
           filters:
-            #- RemoveRequestHeader=Cookie
+            - RemoveRequestHeader=Cookie
             - RewritePath=/(?<segment>/?.*), /$\{segment} 
 
 
@@ -43,7 +43,7 @@ spring:
           predicates:
             - Path=/realEstate/**
           filters:
-            #- RemoveRequestHeader=Cookie
+            - RemoveRequestHeader=Cookie
             - RewritePath=/realEstate/(?<segment>/?.*), /$\{segment}
 
         - id: real-estate-service-resource
@@ -52,7 +52,7 @@ spring:
             - Path=/realEstate/css/**,/realEstate/js/**,/realEstate/images/**
             - Method=GET
           filters:
-            #- RemoveRequestHeader=Cookie
+            - RemoveRequestHeader=Cookie
             - RewritePath=/realEstate/(?<segment>/?.*), /$\{segment} 
 
 
@@ -62,7 +62,7 @@ spring:
             - Path=/api/v1.0/refreshToken
             - Method=POST
           filters:
-            #- RemoveRequestHeader=Cookie
+            - RemoveRequestHeader=Cookie
             - RewritePath=/api/v1.0/refreshToken, /oauth/token
             
         - id: crm-service
@@ -70,7 +70,7 @@ spring:
           predicates:
             - Path=/crm/**
           filters:
-            #- RemoveRequestHeader=Cookie
+            - RemoveRequestHeader=Cookie
             - RewritePath=/crm/(?<segment>/?.*), /$\{segment}
 
         - id: crm-service-resource
@@ -79,7 +79,7 @@ spring:
             - Path=/crm/css/**,/crm/js/**,/crm/images/**
             - Method=GET
           filters:
-            #- RemoveRequestHeader=Cookie
+            - RemoveRequestHeader=Cookie
             - RewritePath=/crm/(?<segment>/?.*), /$\{segment}             
 
 
