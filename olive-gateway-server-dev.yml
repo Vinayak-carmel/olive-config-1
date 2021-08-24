@@ -101,22 +101,22 @@ spring:
 #  level:
 #    root: trace    
 
-spring:
-  cloud:
-    gateway:
-      httpclient:
-        wiretap: true
-      httpserver:
-        wiretap: true
+#spring:
+#  cloud:
+#    gateway:
+#      httpclient:
+#        wiretap: true
+#      httpserver:
+#        wiretap: true
 
 logging:
   level:
     reactor:
-      netty: TRACE
+      netty: DEBUG
     org:
       springframework:
         cloud:
-          gateway: TRACE      
+          gateway: DEBUG      
   file:
     name: ./logs/olive-gateway-server.log
     
