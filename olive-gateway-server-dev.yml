@@ -11,77 +11,46 @@ spring:
           enabled: true
           lower-case-service-id: true
       routes:
-        - id: do-login
+        - id: olive-auth-service
           uri: lb://olive-auth-server
           predicates:
-            - Path=/api/v1.0/doLogin
+            - Path=/api/olive/1.0/doLogin
             - Method=POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/api/v1.0/doLogin, /api/v1/olive-login
+            - RewritePath=/api/olive/1.0/doLogin, /api/v1/olive-login
 
         - id: olive-foundation-service
           uri: lb://olive-foundation-server
           predicates:
-            - Path=/api/olive/**
+            - Path=/api/olive/1.0/foundation/**
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/api/olive/(?<segment>/?.*), /$\{segment}
+            - RewritePath=/api/olive/1.0/foundation/(?<segment>/?.*), /$\{segment}
 
-        - id: olive-foundation-service-resource
-          uri: lb://olive-foundation-server
-          predicates:
-            - Path=/css/**,/js/**,/images/**
-            - Method=GET
-          filters:
-            - RemoveRequestHeader=Cookie
-            - RewritePath=/(?<segment>/?.*), /$\{segment} 
-
-
-        - id: real-estate-service
+        - id: olive-real-estate-service
           uri: lb://real-estate-server
           predicates:
-            - Path=/realEstate/**
+            - Path=/api/olive/1.0/realEstate/**
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/realEstate/(?<segment>/?.*), /$\{segment}
+            - RewritePath=/api/olive/1.0/realEstate/(?<segment>/?.*), /$\{segment}
 
-        - id: real-estate-service-resource
-          uri: lb://real-estate-server
-          predicates:
-            - Path=/realEstate/css/**,/realEstate/js/**,/realEstate/images/**
-            - Method=GET
-          filters:
-            - RemoveRequestHeader=Cookie
-            - RewritePath=/realEstate/(?<segment>/?.*), /$\{segment} 
-
-
-        - id: refresh-token
-          uri: lb://olive-auth-server
-          predicates:
-            - Path=/api/v1.0/refreshToken
-            - Method=POST
-          filters:
-            - RemoveRequestHeader=Cookie
-            - RewritePath=/api/v1.0/refreshToken, /oauth/token
-            
-        - id: crm-service
+        - id: olive-crm-service
           uri: lb://crm-server
           predicates:
-            - Path=/crm/**
+            - Path=/api/olive/1.0/crm/**
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/crm/(?<segment>/?.*), /$\{segment}
+            - RewritePath=/api/olive/1.0/crm/(?<segment>/?.*), /$\{segment}
 
-        - id: crm-service-resource
-          uri: lb://crm-server
+        - id: olive-kloud-kichn-service
+          uri: lb://kloud-kichn-server
           predicates:
-            - Path=/crm/css/**,/crm/js/**,/crm/images/**
-            - Method=GET
+            - Path=/api/olive/1.0/kloudKichn/**
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/crm/(?<segment>/?.*), /$\{segment}             
-
+            - RewritePath=/api/olive/1.0/kloudKichn/(?<segment>/?.*), /$\{segment}
 
 
 #  security:
