@@ -51,7 +51,14 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/api/olive/1.0/kloudKichn/(?<segment>/?.*), /$\{segment}
-
+            
+        - id: olive-icrm
+          uri: lb://icrm-server
+          predicates:
+            - Path=/api/olive/1.0/icrm/**
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/api/olive/1.0/icrm/(?<segment>/?.*), /$\{segment}
 
 #  security:
 #    oauth2:
